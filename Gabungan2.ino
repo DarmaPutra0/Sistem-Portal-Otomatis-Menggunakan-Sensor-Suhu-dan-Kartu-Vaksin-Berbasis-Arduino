@@ -1,7 +1,7 @@
 #include<SoftwareSerial.h>
 SoftwareSerial myserial(2,3);
-String kode; //kode = berisi huruf
-const int EN2=6; // mengaktifkan motor
+String kode; 
+const int EN2=6; // PWM
 const int motor2_l=7; // pin motor
 const int motor2_r=8; // pin motor
 const int ls=9;  // limit switch
@@ -38,7 +38,6 @@ void loop() {
       Serial.println("Sensor detected");
 //      buka();
     }
-   //perintah membaca sbarcode
    
   if(barcod&&desinfektan){
    buka(); 
@@ -47,9 +46,8 @@ void loop() {
 void readBarcode(){
   while (myserial.available() > 0) {
     kode = myserial.readString();
-  int length = kode.length();
-//    P-R2JSHI3K
-    if(kode.length()==11){
+
+    if(kode.length()==11){//mengambil panjang string qrcode kartu vaksin
       barcod=true;
        stsBuka=true;
   // buka();
@@ -59,23 +57,23 @@ void readBarcode(){
   Serial.println(kode); 
 }
 void buka(){
-  analogWrite (EN2,100); // driver hidup dengan kekuatan 100 dari maksimalnya 225
-      digitalWrite(motor2_l, HIGH); // putar kanan alias terbuka
-      digitalWrite(motor2_r, LOW); // harus mati, jika tidak maka motor terbuka
-      Serial.println("Portal Buka"); // untuk sekedar tampilan
-      delay(370); // waktu penundaan selama terbuka
+  analogWrite (EN2,100); 
+      digitalWrite(motor2_l, HIGH); 
+      digitalWrite(motor2_r, LOW); 
+      Serial.println("Portal Buka"); 
+      delay(370); 
       
-      analogWrite (EN2, 0); // motor berhenti karena sudah posisi terbuka
+      analogWrite (EN2, 0); 
       digitalWrite(motor2_l, LOW); 
       digitalWrite(motor2_r, LOW);
       Serial.println("Portal berhenti");
-      delay(4000); // waktu 5 detik untuk melewati portal
+      delay(4000); 
       
-      analogWrite (EN2, 100); // kekuatan 80 dari 225 untuk proses tutup
+      analogWrite (EN2, 100); 
       digitalWrite(motor2_l, LOW);
       digitalWrite(motor2_r, HIGH);
       delay(50);
-      analogWrite (EN2, 45); // kekuatan 80 dari 225 untuk proses tutup
+      analogWrite (EN2, 45); 
       digitalWrite(motor2_l, LOW);
       digitalWrite(motor2_r, HIGH);
       delay(100);
