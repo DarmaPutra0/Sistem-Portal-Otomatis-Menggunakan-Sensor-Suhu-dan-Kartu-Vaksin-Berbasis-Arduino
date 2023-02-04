@@ -5,4 +5,4 @@ Project ini dibuat ketika saya PKL di Lombok Robotika
 Microcontroller Arduino
 Motor driver BTS7960
 Limit Switch 
-GM65 Qrcode Reader 
+dan GM65 Qrcode Reader 
