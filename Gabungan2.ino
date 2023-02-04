@@ -1,3 +1,5 @@
+/*Programmed By Darma Putra */
+/*Lombok Robotika PKL 2021*/
 #include<SoftwareSerial.h>
 SoftwareSerial myserial(2,3);
 String kode; 
