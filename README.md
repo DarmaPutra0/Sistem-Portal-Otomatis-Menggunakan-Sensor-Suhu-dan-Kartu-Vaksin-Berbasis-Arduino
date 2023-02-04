@@ -1,2 +1,8 @@
 # Sistem-Portal-Otomatis-Menggunakan-Sensor-Suhu-dan-Kartu-Vaksin-Berbasis-Arduino
-Qrcode Reader menggunakan GM65
+
+Project ini dibuat ketika saya PKL di Lombok Robotika
+
+Microcontroller Arduino
+Motor driver BTS7960
+Limit Switch 
+GM65 Qrcode Reader 
